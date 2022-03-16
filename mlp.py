@@ -1,6 +1,7 @@
 import tensorflow as tf
 import numpy as np
 import matplotlib.pyplot as plt
+import os
 
 def load_data():
     (x_train, y_train), (x_test, y_test) = tf.keras.datasets.fashion_mnist.load_data()
@@ -117,6 +118,13 @@ class MLP():
 
 
     def plot(self, learning_rate=1e-3, batch_size=256, epochs=40):
+        np.save(os.path.join('npy_objects', 'epoch_accuracies_'+str(epochs)+'_'+str(batch_size)+'_'+str(learning_rate)), np.array(self.epoch_accuracies))
+        np.save(os.path.join('npy_objects', 'test_epoch_accuracies_'+str(epochs)+'_'+str(batch_size)+'_'+str(learning_rate)), np.array(self.test_epoch_accuracies))
+        np.save(os.path.join('npy_objects', 'epoch_losses_'+str(epochs)+'_'+str(batch_size)+'_'+str(learning_rate)), np.array(self.epoch_losses))
+        np.save(os.path.join('npy_objects', 'test_epoch_losses_'+str(epochs)+'_'+str(batch_size)+'_'+str(learning_rate)), np.array(self.test_epoch_losses))
+        np.save(os.path.join('npy_objects', 'batch_accuracies_'+str(epochs)+'_'+str(batch_size)+'_'+str(learning_rate)), np.array(self.batch_accuracies))
+        np.save(os.path.join('npy_objects', 'batch_losses_'+str(epochs)+'_'+str(batch_size)+'_'+str(learning_rate)), np.array(self.batch_losses))
+
         plt.figure(1)
         plt.plot(np.linspace(1, len(self.epoch_accuracies), len(self.epoch_accuracies)), self.epoch_accuracies, color='blue', label='Train Data')
         plt.plot(np.linspace(1, len(self.test_epoch_accuracies), len(self.test_epoch_accuracies)), self.test_epoch_accuracies, color='orange', label='Test Data')
