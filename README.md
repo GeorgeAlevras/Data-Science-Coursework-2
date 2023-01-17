@@ -12,4 +12,4 @@ The repository contains:
 - A Jupyter Lab file containing the coursework code and the write-up markdown `Alevras01531221_CW2.ipynb`
 - A folder with the raw data `./Data/`
 - A folder with images for the coursework `./Images/`
-- A folder with Numpy objejcts storing data variables `./npy_objects`
+- A folder with Numpy objejcts storing data variables `./numpy_objects`
